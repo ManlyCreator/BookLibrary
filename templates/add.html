@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Book</title>
+  </head>
+  <body>
+    <form action={{ url_for("add") }} method="post" novalidate>
+      {{ form.csrf_token }}
+      <label>Book Name</label> {{ form.title }}
+      {% for err in form.title.errors %}
+          <span style="color: red;">{{ err }}</span>
+      {% endfor %}
+      <br>
+      <label>Book Author</label> {{ form.author }}
+      {% for err in form.author.errors %}
+          <span style="color: red;">{{ err }}</span>
+      {% endfor %}
+      <br>
+      <label>Rating</label> {{ form.rating }}
+      {% for err in form.rating.errors %}
+          <span style="color: red;">{{ err }}</span>
+      {% endfor %}
+      <br>
+      <input type="submit" value="Add Book">
+    </form>
+    <a href={{ url_for("home") }}>Home</a>
+  </body>
+</html>

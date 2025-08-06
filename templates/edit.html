@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Rating</title>
+</head>
+<body>
+    <p>Book Name: {{ book.title }}</p>
+    <p>Current Rating: {{ book.rating }}</p>
+    <form method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.rating.label }} {{ form.rating }}
+        {% for err in form.rating.errors %}
+            <span style="color: red;">{{ err }}</span>
+        {% endfor %}
+        <input type="submit" value="Change Rating">
+    </form>
+</body>
+</html>
